@@ -8,6 +8,7 @@ public class CarController : MonoBehaviour
     [SerializeField] private LayerMask drivable;
     [SerializeField] private Transform accelerationPoint;
     [SerializeField] private GameObject[] tires = new GameObject[4];
+    [SerializeField] private GameObject[] frontTireParents = new GameObject[2];
    
     [Header("Suspension Settings")]
     [SerializeField] private float springStiffness;
@@ -36,6 +37,7 @@ public class CarController : MonoBehaviour
 
     [Header("Visuals")]
     [SerializeField] private float tireRotSpeed = 3000f;
+    [SerializeField] private float maxSteeringAngle = 30f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -124,9 +126,12 @@ public class CarController : MonoBehaviour
     }
 
     private void TireVisuals(){
+        float steeringAngle = maxSteeringAngle * steerInput;
         for(int i = 0; i < tires.Length; i++){
             if (i < 2){
                 tires[i].transform.Rotate(Vector3.right, tireRotSpeed * carVelocityRatio * Time.deltaTime, Space.Self);
+
+                frontTireParents[i].transform.localEulerAngles = new Vector3(frontTireParents[i].transform.localEulerAngles.x, steeringAngle, frontTireParents[i].transform.localEulerAngles.z);
             } else {
                 tires[i].transform.Rotate(Vector3.right, tireRotSpeed * moveInput * Time.deltaTime, Space.Self);
             }
