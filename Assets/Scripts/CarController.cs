@@ -35,6 +35,8 @@ public class CarController : MonoBehaviour
     [SerializeField] private float steerStrength = 15f;
     [SerializeField] private AnimationCurve turningCurve;
     [SerializeField] private float dragCoefficient = 1f;
+    [SerializeField] private float breakingDeceleration = 100f;
+    [SerializeField] private float breakingDragCoefficient = 0.5f;
 
     private Vector3 currentCarLocalVelocity = Vector3.zero;
     private float carVelocityRatio = 0;
@@ -82,21 +84,23 @@ public class CarController : MonoBehaviour
         }
     }
     private void Acceleration(){
-        carRB.AddForceAtPosition(acceleration * moveInput * transform.forward, accelerationPoint.position, ForceMode.Acceleration);
+        if(currentCarLocalVelocity.z < maxSpeed){
+            carRB.AddForceAtPosition(acceleration * moveInput * transform.forward, accelerationPoint.position, ForceMode.Acceleration);
+        }
     }
 
     private void Deceleration(){
-        carRB.AddForceAtPosition(deceleration * moveInput * -transform.forward, accelerationPoint.position, ForceMode.Acceleration);
+        carRB.AddForceAtPosition((Input.GetKey(KeyCode.Space) ? breakingDeceleration : deceleration) * carVelocityRatio * -transform.forward, accelerationPoint.position, ForceMode.Acceleration);
     }
 
     private void Turn(){
-        carRB.AddTorque(steerStrength * steerInput * turningCurve.Evaluate(carVelocityRatio) * Mathf.Sign(carVelocityRatio) * transform.up, ForceMode.Acceleration);
+        carRB.AddTorque(steerStrength * steerInput * turningCurve.Evaluate(Mathf.Abs(carVelocityRatio)) * Mathf.Sign(carVelocityRatio) * transform.up, ForceMode.Acceleration);
     }
 
     private void SidewaysDrag(){
         float currentSidewaysSpeed = currentCarLocalVelocity.x;
 
-        float dragMagnitude = -currentSidewaysSpeed * dragCoefficient;
+        float dragMagnitude = -currentSidewaysSpeed * (Input.GetKey(KeyCode.Space) ? breakingDragCoefficient : dragCoefficient);
 
         Vector3 dragForce = transform.right * dragMagnitude;
 
@@ -152,7 +156,7 @@ public class CarController : MonoBehaviour
     }
 
     private void VFX(){
-        if (isGrounded && Math.Abs(currentCarLocalVelocity.x) > minSideSkidVelocity){
+        if (isGrounded && Math.Abs(currentCarLocalVelocity.x) > minSideSkidVelocity && carVelocityRatio > 0){
             ToggleSkidMarks(true);
             ToggleSkidSmokes(true);
             ToggleSkidSound(true);
