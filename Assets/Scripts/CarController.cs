@@ -7,6 +7,7 @@ public class CarController : MonoBehaviour
     [SerializeField] private Transform[] rayPoints;
     [SerializeField] private LayerMask drivable;
     [SerializeField] private Transform accelerationPoint;
+    [SerializeField] private GameObject[] tires = new GameObject[4];
    
     [Header("Suspension Settings")]
     [SerializeField] private float springStiffness;
@@ -32,6 +33,10 @@ public class CarController : MonoBehaviour
 
     private Vector3 currentCarLocalVelocity = Vector3.zero;
     private float carVelocityRatio = 0;
+
+    [Header("Visuals")]
+    [SerializeField] private float tireRotSpeed = 3000f;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -44,6 +49,7 @@ public class CarController : MonoBehaviour
         GroundCheck();
         CalculateCarVelocity();
         Movement();
+        Visuals();
     }
 
     void Update()
@@ -108,6 +114,27 @@ public class CarController : MonoBehaviour
     }
     #endregion
 
+    #region Visuals
+    private void Visuals(){
+        TireVisuals();
+    }
+
+    private void SetTirePosition(GameObject tire, Vector3 targetPosition){
+        tire.transform.position = targetPosition;
+    }
+
+    private void TireVisuals(){
+        for(int i = 0; i < tires.Length; i++){
+            if (i < 2){
+                tires[i].transform.Rotate(Vector3.right, tireRotSpeed * carVelocityRatio * Time.deltaTime, Space.Self);
+            } else {
+                tires[i].transform.Rotate(Vector3.right, tireRotSpeed * moveInput * Time.deltaTime, Space.Self);
+            }
+        }
+    }
+        
+    #endregion
+
     #region Input Handling
         private void GetPlayerInput(){
             moveInput = Input.GetAxis("Vertical");
@@ -136,11 +163,15 @@ public class CarController : MonoBehaviour
 
                 carRB.AddForceAtPosition(netForce * rayPoints[i].up, rayPoints[i].position);
 
+                SetTirePosition(tires[i], hit.point + rayPoints[i].up * wheelRadius);
+
                 Debug.DrawLine(rayPoints[i].position, hit.point, Color.red);
             }
             else {
 
                 wheelIsGrounded[i] = 0;
+
+                SetTirePosition(tires[i], rayPoints[i].position - rayPoints[i].up * maxLength);
 
                 Debug.DrawLine(rayPoints[i].position, rayPoints[i].position + (wheelRadius + maxLength) * -rayPoints[i].up, Color.green);
             }
