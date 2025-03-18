@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class CarController : MonoBehaviour
@@ -9,6 +10,8 @@ public class CarController : MonoBehaviour
     [SerializeField] private Transform accelerationPoint;
     [SerializeField] private GameObject[] tires = new GameObject[4];
     [SerializeField] private GameObject[] frontTireParents = new GameObject[2];
+    [SerializeField] private TrailRenderer[] skidMarks = new TrailRenderer[2];
+    [SerializeField] private ParticleSystem[] skidSmokes = new ParticleSystem[2];
    
     [Header("Suspension Settings")]
     [SerializeField] private float springStiffness;
@@ -38,6 +41,7 @@ public class CarController : MonoBehaviour
     [Header("Visuals")]
     [SerializeField] private float tireRotSpeed = 3000f;
     [SerializeField] private float maxSteeringAngle = 30f;
+    [SerializeField] private float minSideSkidVelocity = 10f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -119,6 +123,7 @@ public class CarController : MonoBehaviour
     #region Visuals
     private void Visuals(){
         TireVisuals();
+        VFX();
     }
 
     private void SetTirePosition(GameObject tire, Vector3 targetPosition){
@@ -134,6 +139,32 @@ public class CarController : MonoBehaviour
                 frontTireParents[i].transform.localEulerAngles = new Vector3(frontTireParents[i].transform.localEulerAngles.x, steeringAngle, frontTireParents[i].transform.localEulerAngles.z);
             } else {
                 tires[i].transform.Rotate(Vector3.right, tireRotSpeed * moveInput * Time.deltaTime, Space.Self);
+            }
+        }
+    }
+
+    private void VFX(){
+        if (isGrounded && Math.Abs(currentCarLocalVelocity.x) > minSideSkidVelocity){
+            ToggleSkidMarks(true);
+            ToggleSkidSmokes(true);
+        } else {
+            ToggleSkidMarks(false);
+            ToggleSkidSmokes(false);
+        }
+    }
+
+    private void ToggleSkidMarks(bool toggle){
+        foreach(var skidMark in skidMarks){
+            skidMark.emitting = toggle;
+        }
+    }
+
+    private void ToggleSkidSmokes(bool toggle){
+        foreach(var smoke in skidSmokes){
+            if(toggle){
+                smoke.Play();
+            } else {
+                smoke.Stop();
             }
         }
     }
