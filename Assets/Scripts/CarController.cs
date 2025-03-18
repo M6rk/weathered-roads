@@ -9,6 +9,7 @@ public class CarController : MonoBehaviour
    
     [Header("Suspension Settings")]
     [SerializeField] private float springStiffness;
+    [SerializeField] private float damperStiffness;
     [SerializeField] private float restLength;
     [SerializeField] private float springTravel;
     [SerializeField] private float wheelRadius;
@@ -30,10 +31,15 @@ public class CarController : MonoBehaviour
             if(Physics.Raycast(rayPoint.position, -rayPoint.up, out hit, maxLength + wheelRadius, drivable)){
                 float currentSpringLength = hit.distance - wheelRadius;
                 float springCompression = restLength - currentSpringLength / springTravel;
+
+                float springVelocity = Vector3.Dot(carRB.GetPointVelocity(rayPoint.position), rayPoint.up);
+                float dampForce = damperStiffness * springVelocity;
                 
                 float springForce = springStiffness * springCompression;
 
-                carRB.AddForceAtPosition(springForce * rayPoint.up, rayPoint.position);
+                float netForce = springForce - dampForce;
+
+                carRB.AddForceAtPosition(netForce * rayPoint.up, rayPoint.position);
 
                 Debug.DrawLine(rayPoint.position, hit.point, Color.red);
             }
