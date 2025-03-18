@@ -26,6 +26,9 @@ public class CarController : MonoBehaviour
     [SerializeField] private float acceleration = 25f;
     [SerializeField] private float maxSpeed = 100f;
     [SerializeField] private float deceleration = 10f;
+    [SerializeField] private float steerStrength = 15f;
+    [SerializeField] private AnimationCurve turningCurve;
+    [SerializeField] private float dragCoefficient = 1f;
 
     private Vector3 currentCarLocalVelocity = Vector3.zero;
     private float carVelocityRatio = 0;
@@ -54,6 +57,8 @@ public class CarController : MonoBehaviour
         if(isGrounded){
             Acceleration();
             Deceleration();
+            Turn();
+            SidewaysDrag();
         }
     }
     private void Acceleration(){
@@ -62,6 +67,20 @@ public class CarController : MonoBehaviour
 
     private void Deceleration(){
         carRB.AddForceAtPosition(deceleration * moveInput * -transform.forward, accelerationPoint.position, ForceMode.Acceleration);
+    }
+
+    private void Turn(){
+        carRB.AddTorque(steerStrength * steerInput * turningCurve.Evaluate(carVelocityRatio) * Mathf.Sign(carVelocityRatio) * transform.up, ForceMode.Acceleration);
+    }
+
+    private void SidewaysDrag(){
+        float currentSidewaysSpeed = currentCarLocalVelocity.x;
+
+        float dragMagnitude = -currentSidewaysSpeed * dragCoefficient;
+
+        Vector3 dragForce = transform.right * dragMagnitude;
+
+        carRB.AddForceAtPosition(dragForce, carRB.worldCenterOfMass, ForceMode.Acceleration);
     }
     #endregion
 
