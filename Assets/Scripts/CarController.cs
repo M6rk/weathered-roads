@@ -94,10 +94,10 @@ public class CarController : MonoBehaviour
 
         if(tempGroundedWheels > 1){
             isGrounded = true;
-            Debug.Log("Is grounded: " + isGrounded);
+            // Debug.Log("Is grounded: " + isGrounded);
         } else {
             isGrounded = false;
-            Debug.Log("Is grounded: " + isGrounded);
+            // Debug.Log("Is grounded: " + isGrounded);
         }
     }
 
