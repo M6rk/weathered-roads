@@ -5910,6 +5910,8 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   dragCoefficient: 1
+  breakingDeceleration: 100
+  breakingDragCoefficient: 0.5
   tireRotSpeed: 3000
   maxSteeringAngle: 30
   minSideSkidVelocity: 5
