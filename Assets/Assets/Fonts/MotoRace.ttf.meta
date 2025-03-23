@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 18c988ecf6f604c29bbe63601c807521
+guid: b2b9b307b1d522e4dbb8551b07b281f7
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Inter
+  - Moto Race
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
