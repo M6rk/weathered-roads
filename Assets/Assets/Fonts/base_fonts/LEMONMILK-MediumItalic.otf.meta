@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 91e1907064afd44c794ef49eb2805dfb
+guid: e07fb58ecdefa5c43b36441ef0de9d2c
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - RACING HARD
+  - LEMON MILK
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

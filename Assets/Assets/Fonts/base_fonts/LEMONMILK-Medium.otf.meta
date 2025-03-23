@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b2b9b307b1d522e4dbb8551b07b281f7
+guid: 610b7c175a7f8384291242cf5586c42a
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Moto Race
+  - LEMON MILK
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

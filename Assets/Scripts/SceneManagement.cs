@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameSceneManager : MonoBehaviour
+public class SceneManagement : MonoBehaviour
 {
     public void LoadNextScene()
     {
@@ -22,12 +22,7 @@ public class GameSceneManager : MonoBehaviour
     {
         // Load a scene by index
         SceneManager.LoadScene(sceneIndex);
-    }
-    public void LoadCCSelectScene()
-    {
-        LoadSceneByName("CCSelectMenu");
-    }
-    
+    } 
     public void LoadSceneByName(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
