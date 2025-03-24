@@ -12,12 +12,15 @@ EditorBuildSettings:
     path: Assets/Scenes/StartMenu.unity
     guid: e8367af569e604689b19cc0754e0966d
   - enabled: 1
-    path: Assets/Scenes/CCSelectMenu.unity
+    path: Assets/Scenes/ModeSelectMenu.unity
     guid: 4c9fa54c398cf4c84b7943cf3a67ac2e
   - enabled: 1
     path: Assets/Scenes/MapSelectMenu.unity
     guid: 48a5a9185e06448ccbd748eb3f696b64
   - enabled: 1
+    path: Assets/Scenes/RacingUI.unity
+    guid: c63a9e989c71242708025df920a02b41
+  - enabled: 0
     path: Assets/Scenes/GameOver.unity
     guid: d2316ebce7a684624a297c83f0b6a212
   m_configObjects:

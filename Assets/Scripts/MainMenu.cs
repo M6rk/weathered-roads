@@ -5,29 +5,10 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField] private GameObject mainMenuCanvas;
     [SerializeField] private GameObject optionsCanvas;
-    public void LoadNextScene()
-    {
-        // Load the scene with the next index from build settings
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(currentSceneIndex + 1);
-    }
 
-    public void LoadPreviousScene()
+    public void LoadModeSelectScene()
     {
-        // Go back by 1 index from current scene
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        if (currentSceneIndex > 0)
-            SceneManager.LoadScene(currentSceneIndex - 1);
-    }
-
-    public void LoadSceneByIndex(int sceneIndex)
-    {
-        // Load a scene by index
-        SceneManager.LoadScene(sceneIndex);
-    }
-    public void LoadCCSelectScene()
-    {
-        LoadSceneByName("CCSelectMenu");
+        LoadSceneByName("ModeSelectMenu");
     }
 
     public void LoadSceneByName(string sceneName)
