@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CarController : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class CarController : MonoBehaviour
     [SerializeField] private TrailRenderer[] skidMarks = new TrailRenderer[2];
     [SerializeField] private ParticleSystem[] skidSmokes = new ParticleSystem[2];
     [SerializeField] private AudioSource engineSound, skidSound;
+    [SerializeField] private GameObject car;
    
     [Header("Suspension Settings")]
     [SerializeField] private float springStiffness;
@@ -71,6 +73,16 @@ public class CarController : MonoBehaviour
     void Update()
     {
         GetPlayerInput();
+    }
+
+    public void ResetCar(){
+        carRB.isKinematic = true;
+        car.transform.position = TrackCheckpoints.respawnPoint;
+        carRB.linearVelocity = Vector3.zero;
+        carRB.angularVelocity = Vector3.zero;
+        // carRB.MoveRotation(TrackCheckpoints.checkpointRotation);
+        car.transform.rotation = TrackCheckpoints.checkpointRotation;
+        carRB.isKinematic = false;
     }
 
     #region Movement

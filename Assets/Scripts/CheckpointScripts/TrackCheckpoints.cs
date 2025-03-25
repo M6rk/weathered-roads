@@ -6,7 +6,8 @@ public class TrackCheckpoints : MonoBehaviour
     private List<CheckpointSingle> checkpointSingleList;
     private int nextCheckpointSingleIndex;
 
-    private Vector3 respawnPoint;
+    public static Vector3 respawnPoint;
+    public static Quaternion checkpointRotation;
     public static int laps;
     private int numOfCheckpoints;
     private float tempLapCounter;
@@ -47,7 +48,8 @@ public class TrackCheckpoints : MonoBehaviour
             checkpointCounter = checkpointSingleList.IndexOf(checkpointSingle);
             string checkpointName = "Checkpoint (" + checkpointCounter + ")";
             Transform tempCheckpoint = GameObject.Find(checkpointName).transform;
-            Debug.Log(tempCheckpoint.position);
+            respawnPoint = new Vector3(tempCheckpoint.position.x, tempCheckpoint.position.y - 6f, tempCheckpoint.position.z);
+            checkpointRotation = tempCheckpoint.transform.rotation;
             nextCheckpointSingleIndex = (nextCheckpointSingleIndex + 1) % checkpointSingleList.Count;
         } else {
             Debug.Log("wrong");
