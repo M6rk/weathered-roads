@@ -18,6 +18,18 @@ EditorBuildSettings:
     path: Assets/Scenes/MapSelectMenu.unity
     guid: 48a5a9185e06448ccbd748eb3f696b64
   - enabled: 1
+    path: Assets/Scenes/TrackOne.unity
+    guid: 34eda3cee2e630a48bf0ac69a7da46c1
+  - enabled: 1
+    path: Assets/Scenes/TrackTwo.unity
+    guid: 641729fefa4eaa441bce1be77dcdb6e2
+  - enabled: 1
+    path: Assets/Scenes/TrackThree.unity
+    guid: a319009e3ba32694190b77846515d209
+  - enabled: 1
+    path: Assets/Scenes/RaceFinish.unity
+    guid: f4a31cec277d14e4fa3926d6631fe19a
+  - enabled: 0
     path: Assets/Scenes/RacingUI.unity
     guid: c63a9e989c71242708025df920a02b41
   - enabled: 0
