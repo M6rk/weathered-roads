@@ -6,7 +6,7 @@ public class TrackCheckpoints : MonoBehaviour
     private List<CheckpointSingle> checkpointSingleList;
     private int nextCheckpointSingleIndex;
 
-    public int laps;
+    public static int laps;
     private int numOfCheckpoints;
     private int tempLapCounter;
     private void Awake()
@@ -51,5 +51,9 @@ public class TrackCheckpoints : MonoBehaviour
 
     public void IncreaseLaps(){
         laps++;
+    }
+
+    public int GetLapNumber(){
+        return laps;
     }
 }

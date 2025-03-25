@@ -3,10 +3,13 @@ using UnityEngine;
 public class RacingHandler : MonoBehaviour
 {
 
-    private int laps = 1;
+    private int laps;
+
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Trigger entered by: " + other.gameObject.name);
+        
+        laps = TrackCheckpoints.laps;
         
         if (other.CompareTag("Player"))
         {
@@ -21,7 +24,6 @@ public class RacingHandler : MonoBehaviour
                     racingUI.FinishRace();
                 }
             }
-            laps++;
         }
     }
 }
