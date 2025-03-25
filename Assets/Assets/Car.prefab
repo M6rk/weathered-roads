@@ -5823,8 +5823,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.85, y: 1.0482178, z: 4.826172}
-  m_Center: {x: 0, y: 0.89974976, z: -0.044433594}
+  m_Size: {x: 1.85, y: 1.4431458, z: 4.826172}
+  m_Center: {x: 0, y: 0.70228577, z: -0.044433594}
 --- !u!1 &5409521105084785938
 GameObject:
   m_ObjectHideFlags: 0
@@ -6130,7 +6130,6 @@ MonoBehaviour:
   - {fileID: 5559010590139821191}
   engineSound: {fileID: 6815640293930100608}
   skidSound: {fileID: 3702154338501790356}
-  car: {fileID: 6149683538193976516}
   springStiffness: 30000
   damperStiffness: 3000
   restLength: 0.8
