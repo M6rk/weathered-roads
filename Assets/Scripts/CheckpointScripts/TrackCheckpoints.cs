@@ -12,6 +12,7 @@ public class TrackCheckpoints : MonoBehaviour
     private int numOfCheckpoints;
     private float tempLapCounter;
     private int checkpointCounter;
+    [SerializeField] private float verticalOffset;
 
     private void Awake()
     {
@@ -48,7 +49,7 @@ public class TrackCheckpoints : MonoBehaviour
             checkpointCounter = checkpointSingleList.IndexOf(checkpointSingle);
             string checkpointName = "Checkpoint (" + checkpointCounter + ")";
             Transform tempCheckpoint = GameObject.Find(checkpointName).transform;
-            respawnPoint = new Vector3(tempCheckpoint.position.x, tempCheckpoint.position.y - 6f, tempCheckpoint.position.z);
+            respawnPoint = new Vector3(tempCheckpoint.position.x, tempCheckpoint.position.y - verticalOffset, tempCheckpoint.position.z);
             checkpointRotation = tempCheckpoint.transform.rotation;
             nextCheckpointSingleIndex = (nextCheckpointSingleIndex + 1) % checkpointSingleList.Count;
         } else {
