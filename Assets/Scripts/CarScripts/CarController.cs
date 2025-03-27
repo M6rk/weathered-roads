@@ -254,4 +254,21 @@ public class CarController : MonoBehaviour
     }
     #endregion
 
+    #region Getters and Setters
+    // getters for acceleration and speed as they are the only ones we need to get and set
+    public float GetMaxSpeed(){
+        return maxSpeed;
+    }
+
+    public void SetMaxSpeed(float newMaxSpeed){
+        maxSpeed = newMaxSpeed;
+    }
+    public float GetAcceleration(){
+        return acceleration;
+    }
+
+    public void SetAcceleratoin(float newAcceleration){
+        acceleration = newAcceleration;
+    }
+    #endregion
 }
