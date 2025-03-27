@@ -44,14 +44,28 @@ public class RacingUI : MonoBehaviour
         if (countdownTime > 0)
         {
             countdownText.text = countdownTime.ToString("0");
+            //sets color based off the time of countdown
+            switch (countdownTime)
+            {
+                case 3:
+                    countdownText.color = Color.red;
+                    break;
+                case 2:
+                    countdownText.color = Color.yellow;
+                    break;
+                case 1:
+                    countdownText.color = Color.green;
+                    break;
+            }
             countdownTime--;
         }
         else if (isCountingDown)
         {
             countdownText.text = "GO!";
+            countdownText.color = Color.green;
             isCountingDown = false;
             CancelInvoke("UpdateCountdown");
-            Invoke("StartRace", 1f); 
+            StartRace();
         }
     }
 
