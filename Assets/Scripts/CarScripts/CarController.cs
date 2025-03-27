@@ -58,6 +58,13 @@ public class CarController : MonoBehaviour
     void Start()
     {
         carRB = GetComponent<Rigidbody>();
+
+        // sets different speeds of the car depending on the CC selected.
+        float selectedCC = VariableManager.instance.selectedCC;
+        maxSpeed = maxSpeed * selectedCC;
+        acceleration = acceleration * selectedCC;
+        Debug.Log("Max speed: " + maxSpeed);
+        Debug.Log("Acceleration: " + acceleration);
     }
 
     private void FixedUpdate()
@@ -254,21 +261,22 @@ public class CarController : MonoBehaviour
     }
     #endregion
 
+// below getters and setters have been rendered relatively useless, but still keeping them in case we need them
     #region Getters and Setters
     // getters for acceleration and speed as they are the only ones we need to get and set
     public float GetMaxSpeed(){
         return maxSpeed;
     }
 
-    public void SetMaxSpeed(float newMaxSpeed){
-        maxSpeed = newMaxSpeed;
+    public void SetMaxSpeed(float speedModifier){
+        maxSpeed = maxSpeed * speedModifier;
     }
     public float GetAcceleration(){
         return acceleration;
     }
 
-    public void SetAcceleratoin(float newAcceleration){
-        acceleration = newAcceleration;
+    public void SetAcceleration(float accelerationModifier){
+        acceleration = acceleration * accelerationModifier;
     }
     #endregion
 }
