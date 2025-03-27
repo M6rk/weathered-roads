@@ -66,6 +66,7 @@ public class RacingUI : MonoBehaviour
             isCountingDown = false;
             CancelInvoke("UpdateCountdown");
             StartRace();
+            Invoke("HideCountdown", 1f);
         }
     }
 
@@ -75,10 +76,13 @@ public class RacingUI : MonoBehaviour
         {
             carController.enabled = true; 
         }
-
-        countdownCanvas.SetActive(false);
         racingUIContainer.SetActive(true);
         ResetTimer();
+    }
+
+    private void HideCountdown()
+    {
+        countdownCanvas.SetActive(false);
     }
 
     // Update is called once per frame
