@@ -9,6 +9,7 @@ public class RacingUI : MonoBehaviour
     [SerializeField] private GameObject countdownCanvas;   
     [SerializeField] private TMP_Text countdownText;      
     [SerializeField] private MonoBehaviour carController; 
+    [SerializeField] private AudioSource[] carAudioSources;
     private float raceTime = 0f;
     private bool isRacing = false;
     private float countdownTime = 3f; 
@@ -16,10 +17,19 @@ public class RacingUI : MonoBehaviour
 
     void Start()
     {
-        //disables user controls on entry 
         if (carController != null)
         {
             carController.enabled = false; 
+        }
+        if (carAudioSources != null)
+        {
+            foreach(AudioSource source in carAudioSources)
+            {
+                if(source != null)
+                {
+                    source.enabled = false;
+                }
+            }
         }
         StartCountdown();
     }
@@ -44,17 +54,16 @@ public class RacingUI : MonoBehaviour
         if (countdownTime > 0)
         {
             countdownText.text = countdownTime.ToString("0");
-            //sets color based off the time of countdown
             switch (countdownTime)
             {
                 case 3:
-                    countdownText.color = Color.red;
+                    countdownText.color = new Color(255f / 255f, 36f / 255f, 36f / 255f);
                     break;
                 case 2:
-                    countdownText.color = Color.yellow;
+                    countdownText.color = new Color(255f / 255f, 229f / 255f, 36f / 255f);
                     break;
                 case 1:
-                    countdownText.color = Color.green;
+                    countdownText.color = new Color(65f / 255f, 255f / 255f, 36f / 255f);
                     break;
             }
             countdownTime--;
@@ -62,7 +71,7 @@ public class RacingUI : MonoBehaviour
         else if (isCountingDown)
         {
             countdownText.text = "GO!";
-            countdownText.color = Color.green;
+            countdownText.color = new Color(65f / 255f, 255f / 255f, 36f / 255f);
             isCountingDown = false;
             CancelInvoke("UpdateCountdown");
             StartRace();
@@ -75,6 +84,16 @@ public class RacingUI : MonoBehaviour
         if (carController != null)
         {
             carController.enabled = true; 
+        }
+        if (carAudioSources != null)
+        {
+            foreach(AudioSource source in carAudioSources)
+            {
+                if(source != null)
+                {
+                    source.enabled = true;
+                }
+            }
         }
         racingUIContainer.SetActive(true);
         ResetTimer();
