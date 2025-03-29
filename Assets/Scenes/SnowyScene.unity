@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: c56e28e54cac24b04ae3dd957d214534, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 05c52bc1345ad4d9582a3d8c84671238, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -4995,20 +4995,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 281d17e08fb644222a234acd829c51b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weatherSkybox: {fileID: 2100000, guid: c56e28e54cac24b04ae3dd957d214534, type: 2}
+  weatherSkybox: {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
   ambientMode: 0
-  ambientColor: {r: 0.8537736, g: 0.9213408, b: 1, a: 1}
+  ambientColor: {r: 1, g: 1, b: 1, a: 1}
   ambientIntensity: 0.99
   defaultReflectionMode: 0
   reflectionIntensity: 0.39
   directionalLight: {fileID: 0}
-  directionalLightColor: {r: 0.9386792, g: 0.9462889, b: 1, a: 1}
+  directionalLightColor: {r: 1, g: 1, b: 1, a: 1}
   directionalLightIntensity: 0.242
   enableFog: 1
-  fogColor: {r: 0.8820755, g: 0.8897907, b: 1, a: 1}
+  fogColor: {r: 0.9669811, g: 0.9797443, b: 1, a: 1}
   fogMode: 3
   fogDensity: 0.025
-  fogStartDistance: 5
+  fogStartDistance: 50
   fogEndDistance: 300
 --- !u!4 &647477005
 Transform:
@@ -5025,7 +5025,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1928712812
+--- !u!1 &1691699768
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5033,42 +5033,42 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1928712814}
-  - component: {fileID: 1928712813}
-  m_Layer: 8
-  m_Name: Post
+  - component: {fileID: 1691699770}
+  - component: {fileID: 1691699769}
+  m_Layer: 0
+  m_Name: Global Volume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1928712813
+--- !u!114 &1691699769
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1928712812}
+  m_GameObject: {fileID: 1691699768}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sharedProfile: {fileID: 11400000, guid: 309d77b1b0bb546f8a17ea6c237cf084, type: 2}
-  isGlobal: 1
+  m_IsGlobal: 1
+  priority: 0
   blendDistance: 0
   weight: 1
-  priority: 0
---- !u!4 &1928712814
+  sharedProfile: {fileID: 11400000, guid: a3b1b57b2ed044d0b8a01b68939d7e31, type: 2}
+--- !u!4 &1691699770
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1928712812}
+  m_GameObject: {fileID: 1691699768}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.452852, y: 30.991009, z: 36.826958}
+  m_LocalPosition: {x: -0.00000017881393, y: 0.46192932, z: -0.030103803}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5080,4 +5080,4 @@ SceneRoots:
   m_Roots:
   - {fileID: 566952957}
   - {fileID: 647477005}
-  - {fileID: 1928712814}
+  - {fileID: 1691699770}
