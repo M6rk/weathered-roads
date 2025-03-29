@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+
 public class ModeSelection : MonoBehaviour
 {
     [Header("CC Selection")]
@@ -20,7 +21,7 @@ public class ModeSelection : MonoBehaviour
     private Button selectedWeatherButton;
 
     private int selectedCC;
-    private string selectedWeather;
+    private string selectedWeatherSceneName; // Changed to store scene name
 
     // Color button states
     [SerializeField] private Color normalColor = Color.white;
@@ -36,50 +37,38 @@ public class ModeSelection : MonoBehaviour
         cc150Button.onClick.AddListener(() => SelectCCButton(cc150Button, 150));
 
         // button listeners for weather selection
-        rainyButton.onClick.AddListener(() => SelectWeatherButton(rainyButton, "RAINY"));
-        sunnyButton.onClick.AddListener(() => SelectWeatherButton(sunnyButton, "SUNNY"));
-        snowyButton.onClick.AddListener(() => SelectWeatherButton(snowyButton, "SNOWY"));
+        rainyButton.onClick.AddListener(() => SelectWeatherButton(rainyButton, "RainyScene")); // Assuming your rainy scene is named "RainyScene"
+        sunnyButton.onClick.AddListener(() => SelectWeatherButton(sunnyButton, "SunnyScene")); // Assuming your sunny scene is named "SunnyScene"
+        snowyButton.onClick.AddListener(() => SelectWeatherButton(snowyButton, "SnowyScene")); // Assuming your snowy scene is named "SnowyScene"
     }
 
     // handle CC button selection
-    // Method to handle CC button selection
     private void SelectCCButton(Button button, int ccValue)
     {
-        // reset previous selection
         if (selectedCCButton != null)
         {
             SetButtonNormal(selectedCCButton);
         }
-        // Set new selection
         selectedCCButton = button;
         selectedCC = ccValue;
         // Update button 
-        if(selectedCC == 50){
-            VariableManager.instance.SetCCValue(1);
-        }
-        if(selectedCC == 100){
-            VariableManager.instance.SetCCValue(1.5f);
-        }
-        if(selectedCC == 150){
-            VariableManager.instance.SetCCValue(2);
-        }
         SetButtonSelected(button);
         Debug.Log($"Selected CC: {selectedCC}");
-        CheckShowNextButton(); 
+        CheckShowNextButton();
     }
 
     // handle weather button selection
-    private void SelectWeatherButton(Button button, string weatherValue)
+    private void SelectWeatherButton(Button button, string weatherSceneName)
     {
         if (selectedWeatherButton != null)
         {
             SetButtonNormal(selectedWeatherButton);
         }
         selectedWeatherButton = button;
-        selectedWeather = weatherValue;
+        selectedWeatherSceneName = weatherSceneName;
         SetButtonSelected(button);
-        Debug.Log($"Selected Weather: {selectedWeather}");
-        CheckShowNextButton();  
+        Debug.Log($"Selected Weather Scene: {selectedWeatherSceneName}");
+        CheckShowNextButton();
     }
     // reset button method
     private void SetButtonNormal(Button button)
@@ -108,6 +97,8 @@ public class ModeSelection : MonoBehaviour
     {
         if (selectedCCButton != null && selectedWeatherButton != null)
         {
+            // Store the selected weather scene name for the next scene to access
+            PlayerPrefs.SetString("SelectedWeatherScene", selectedWeatherSceneName);
             SceneManager.LoadScene("MapSelectMenu");
         }
         else
@@ -121,9 +112,9 @@ public class ModeSelection : MonoBehaviour
         return selectedCC;
     }
 
-    // get the current weather selection
-    public string GetSelectedWeather()
+    // get the current weather selection (returns scene name now)
+    public string GetSelectedWeatherScene()
     {
-        return selectedWeather;
+        return selectedWeatherSceneName;
     }
 }

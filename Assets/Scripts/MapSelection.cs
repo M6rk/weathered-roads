@@ -19,14 +19,14 @@ public class MapSelection : MonoBehaviour
     // General button colors
     [SerializeField] private Color normalColor = Color.white;
     [SerializeField] private Color selectedColor = Color.gray;
-    
+
 
     void Start()
     {
         // Hide next button by default
         nextButton.gameObject.SetActive(false);
         nextButton.onClick.AddListener(LoadSelectedTrack);
-        
+
         // Assign each map button to the associated map scene
         map1Button.onClick.AddListener(() => SelectMapButton(map1Button, "TrackOne"));
         map2Button.onClick.AddListener(() => SelectMapButton(map2Button, "TrackTwo"));
@@ -45,7 +45,7 @@ public class MapSelection : MonoBehaviour
         SetButtonSelected(button);
         CheckShowNextButton();
     }
-    
+
     // Reset button style
     private void SetButtonNormal(Button button)
     {
@@ -54,7 +54,7 @@ public class MapSelection : MonoBehaviour
         colors.highlightedColor = mapNormalColor;
         button.colors = colors;
     }
-    
+
     // Set button style
     private void SetButtonSelected(Button button)
     {
@@ -63,7 +63,7 @@ public class MapSelection : MonoBehaviour
         colors.highlightedColor = mapSelectedColor;
         button.colors = colors;
     }
-    
+
     // Next button visibility
     private void CheckShowNextButton()
     {
@@ -72,13 +72,21 @@ public class MapSelection : MonoBehaviour
             nextButton.gameObject.SetActive(true);
         }
     }
-    
+
     // Navigate to tracks scene
     private void LoadSelectedTrack()
     {
         if (selectedMapButton != null && !string.IsNullOrEmpty(targetScene))
         {
+            // Load the selected track scene
             SceneManager.LoadScene(targetScene);
+
+            // Load the selected weather scene additively
+            string selectedWeather = PlayerPrefs.GetString("SelectedWeatherScene");
+            if (!string.IsNullOrEmpty(selectedWeather))
+            {
+                SceneManager.LoadScene(selectedWeather, LoadSceneMode.Additive);
+            }
         }
     }
 }
