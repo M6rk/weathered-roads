@@ -111,10 +111,11 @@ public class Leaderboard : MonoBehaviour
         PlayerPrefs.SetString(mapName + "_Times", newTimesString);
     }
 
-    private string FormatTime(float timeInSeconds)
+    private string FormatTime(float raceTime)
     {
-        int minutes = Mathf.FloorToInt(timeInSeconds / 60);
-        int seconds = Mathf.FloorToInt(timeInSeconds % 60);
-        return string.Format("{0:00}:{1:00}", minutes, seconds);
+        int minutes = Mathf.FloorToInt(raceTime / 60);
+        int seconds = Mathf.FloorToInt(raceTime % 60);
+        int milliseconds = Mathf.FloorToInt((raceTime % 1) * 100);
+        return string.Format("{0:00}:{1:00}.{2:00}", minutes, seconds, milliseconds);
     }
 }

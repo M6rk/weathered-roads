@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class RaceFinish : MonoBehaviour
 {
     [SerializeField] private TMP_Text finalTimeText;
-    
+
     [Header("Medal Images")]
     [SerializeField] private GameObject goldMedal;
     [SerializeField] private GameObject silverMedal;
@@ -15,11 +15,11 @@ public class RaceFinish : MonoBehaviour
     {
         // hide medals unless player achieves an equiavalent time
         HideAllMedals();
-        
+
         // Get race time
         float raceTime = PlayerPrefs.GetFloat("LastRaceTime", 0f);
         DisplayFinalTime(raceTime);
-        
+
         // Display the appropriate medal
         DisplayMedal(raceTime);
     }
@@ -28,9 +28,10 @@ public class RaceFinish : MonoBehaviour
     {
         int minutes = Mathf.FloorToInt(raceTime / 60);
         int seconds = Mathf.FloorToInt(raceTime % 60);
-        finalTimeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        int milliseconds = Mathf.FloorToInt((raceTime % 1) * 100);
+        finalTimeText.text = string.Format("{0:00}:{1:00}.{2:00}", minutes, seconds, milliseconds);
     }
-    
+
     private void HideAllMedals()
     {
         if (goldMedal) goldMedal.SetActive(false);
