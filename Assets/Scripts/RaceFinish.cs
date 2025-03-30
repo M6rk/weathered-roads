@@ -37,7 +37,6 @@ public class RaceFinish : MonoBehaviour
         if (silverMedal) silverMedal.SetActive(false);
         if (bronzeMedal) bronzeMedal.SetActive(false);
     }
-    // TODO: Display a leaderboard of player's time's and the associated medals.
     private void DisplayMedal(float raceTime)
     {
         if (raceTime < 60f) // Less than 1 minute

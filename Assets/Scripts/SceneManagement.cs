@@ -31,6 +31,10 @@ public class SceneManagement : MonoBehaviour
     {
         SceneManager.LoadScene("StartMenu");
     }
+    public void LoadLeaderboard()
+    {
+        SceneManager.LoadScene("Leaderboard");
+    }
     public void QuitGame()
     {
         #if UNITY_EDITOR
