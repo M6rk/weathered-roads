@@ -10,6 +10,10 @@ public class RacingUI : MonoBehaviour
     [SerializeField] private TMP_Text countdownText;      
     [SerializeField] private MonoBehaviour carController; 
     [SerializeField] private AudioSource[] carAudioSources;
+    [SerializeField] public AudioSource countdownBeepSource;
+    [SerializeField] public AudioSource backgroundMusicSource;
+    [SerializeField] public AudioClip countdownBeep;
+    [SerializeField] public AudioClip goBeep;
     private float raceTime = 0f;
     private bool isRacing = false;
     private float countdownTime = 3f; 
@@ -54,6 +58,7 @@ public class RacingUI : MonoBehaviour
         if (countdownTime > 0)
         {
             countdownText.text = countdownTime.ToString("0");
+            countdownBeepSource.PlayOneShot(countdownBeep, 2.5f);
             switch (countdownTime)
             {
                 case 3:
@@ -71,6 +76,7 @@ public class RacingUI : MonoBehaviour
         else if (isCountingDown)
         {
             countdownText.text = "GO!";
+            countdownBeepSource.PlayOneShot(goBeep, 2.5f);
             countdownText.color = new Color(65f / 255f, 255f / 255f, 36f / 255f);
             isCountingDown = false;
             CancelInvoke("UpdateCountdown");
@@ -94,6 +100,11 @@ public class RacingUI : MonoBehaviour
                     source.enabled = true;
                 }
             }
+        }
+        if (backgroundMusicSource != null)
+        {
+            backgroundMusicSource.time = 0f; // Reset to beginning
+            backgroundMusicSource.Play();
         }
         racingUIContainer.SetActive(true);
         ResetTimer();
