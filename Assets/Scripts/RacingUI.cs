@@ -15,6 +15,7 @@ public class RacingUI : MonoBehaviour
     [SerializeField] public AudioSource backgroundMusicSource;
     [SerializeField] public AudioClip countdownBeep;
     [SerializeField] public AudioClip goBeep;
+    [SerializeField] public AudioClip backgroundMusic;
     private float raceTime = 0f;
     private bool isRacing = false;
     private float countdownTime = 3f; 
@@ -26,6 +27,10 @@ public class RacingUI : MonoBehaviour
 
     void Start()
     {
+ 
+        backgroundMusicSource.clip = backgroundMusic;
+        backgroundMusicSource.loop = true;
+        backgroundMusicSource.Play();
         if (carController != null)
         {
             carController.enabled = false; 
@@ -40,6 +45,7 @@ public class RacingUI : MonoBehaviour
                 }
             }
         }
+ 
         StartCountdown();
     }
 
@@ -106,11 +112,7 @@ public class RacingUI : MonoBehaviour
                 }
             }
         }
-        if (backgroundMusicSource != null)
-        {
-            backgroundMusicSource.time = 0f; // Reset to beginning
-            backgroundMusicSource.Play();
-        }
+        
         racingUIContainer.SetActive(true);
         ResetTimer();
         PlayerPrefs.SetString("LastRaceMap", currentTrack);
