@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class RacingUI : MonoBehaviour
 {
+    [Header("UI Elements")]
     [SerializeField] private TMP_Text timerText;
     [SerializeField] private GameObject racingUIContainer; 
     [SerializeField] private GameObject countdownCanvas;   
@@ -15,6 +16,9 @@ public class RacingUI : MonoBehaviour
     private float countdownTime = 3f; 
     private bool isCountingDown = false;
 
+    [Header("Track ID")]
+    [SerializeField] private string currentTrack = "Map1"; 
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         if (carController != null)
@@ -97,6 +101,8 @@ public class RacingUI : MonoBehaviour
         }
         racingUIContainer.SetActive(true);
         ResetTimer();
+        PlayerPrefs.SetString("LastRaceMap", currentTrack);
+        PlayerPrefs.Save();
     }
 
     private void HideCountdown()
@@ -134,7 +140,6 @@ public class RacingUI : MonoBehaviour
         isRacing = false;
         // save race time 
         PlayerPrefs.SetFloat("LastRaceTime", raceTime);
-        
         // Load race finish scene
         Invoke("LoadFinishScene", 2f); // delay slightly before loading finish scene, TODO: add race finish animation
     }
