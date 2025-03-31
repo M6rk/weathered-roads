@@ -4,6 +4,8 @@ public class VariableManager : MonoBehaviour
 {
     public static VariableManager instance;
     public float selectedCC = 1;
+    public float timeModifier = 1;
+    public float tracKTimeOffset = 0;
 
     private void Awake()
     {
@@ -18,5 +20,14 @@ public class VariableManager : MonoBehaviour
 
     public void SetCCValue(float cc){
         selectedCC = cc;
+    }
+
+    public void SetTimeModifier(float modifier){
+        timeModifier = modifier;
+        Debug.Log(timeModifier);
+    }
+
+    public void SetTrackTimeOffset(float offset){
+        tracKTimeOffset = offset;
     }
 }

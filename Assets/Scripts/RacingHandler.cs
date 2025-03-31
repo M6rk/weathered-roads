@@ -18,6 +18,9 @@ public class RacingHandler : MonoBehaviour
             Debug.Log("Started Lap " + laps);
             if(laps > 3){
                 Debug.Log("Player detected - finishing race");
+                VariableManager.instance.SetTrackTimeOffset(0);
+                VariableManager.instance.SetCCValue(1);
+                VariableManager.instance.SetTimeModifier(1);
                 // Find the RacingUI and call FinishRace
                 // TODO: Store time for leaderboard
                 RacingUI racingUI = FindAnyObjectByType<RacingUI>();
