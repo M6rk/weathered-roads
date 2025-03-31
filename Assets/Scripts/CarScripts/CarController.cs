@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CarController : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class CarController : MonoBehaviour
     [SerializeField] private TrailRenderer[] skidMarks = new TrailRenderer[2];
     [SerializeField] private ParticleSystem[] skidSmokes = new ParticleSystem[2];
     [SerializeField] private AudioSource engineSound, skidSound;
+    [SerializeField] private GameObject car;
    
     [Header("Suspension Settings")]
     [SerializeField] private float springStiffness;
@@ -56,6 +58,13 @@ public class CarController : MonoBehaviour
     void Start()
     {
         carRB = GetComponent<Rigidbody>();
+
+        // sets different speeds of the car depending on the CC selected.
+        float selectedCC = VariableManager.instance.selectedCC;
+        maxSpeed = maxSpeed * selectedCC;
+        acceleration = acceleration * selectedCC;
+        Debug.Log("Max speed: " + maxSpeed);
+        Debug.Log("Acceleration: " + acceleration);
     }
 
     private void FixedUpdate()
@@ -71,6 +80,16 @@ public class CarController : MonoBehaviour
     void Update()
     {
         GetPlayerInput();
+    }
+
+    public void ResetCar(){
+        carRB.isKinematic = true;
+        car.transform.position = TrackCheckpoints.respawnPoint;
+        carRB.linearVelocity = Vector3.zero;
+        carRB.angularVelocity = Vector3.zero;
+        // carRB.MoveRotation(TrackCheckpoints.checkpointRotation);
+        car.transform.rotation = TrackCheckpoints.checkpointRotation;
+        carRB.isKinematic = false;
     }
 
     #region Movement
@@ -242,4 +261,22 @@ public class CarController : MonoBehaviour
     }
     #endregion
 
+// below getters and setters have been rendered relatively useless, but still keeping them in case we need them
+    #region Getters and Setters
+    // getters for acceleration and speed as they are the only ones we need to get and set
+    public float GetMaxSpeed(){
+        return maxSpeed;
+    }
+
+    public void SetMaxSpeed(float speedModifier){
+        maxSpeed = maxSpeed * speedModifier;
+    }
+    public float GetAcceleration(){
+        return acceleration;
+    }
+
+    public void SetAcceleration(float accelerationModifier){
+        acceleration = acceleration * accelerationModifier;
+    }
+    #endregion
 }
