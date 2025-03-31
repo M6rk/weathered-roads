@@ -4710,7 +4710,7 @@ MonoBehaviour:
   OnResetPressed:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1411450128}
         m_TargetAssemblyTypeName: CarController, Assembly-CSharp
         m_MethodName: ResetCar
         m_Mode: 1
