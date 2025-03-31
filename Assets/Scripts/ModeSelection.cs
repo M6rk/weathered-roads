@@ -21,6 +21,7 @@ public class ModeSelection : MonoBehaviour
     private Button selectedWeatherButton;
 
     private int selectedCC;
+    private float timeModifier;
     private string selectedWeatherSceneName; // Changed to store scene name
 
     // Color button states
@@ -52,6 +53,15 @@ public class ModeSelection : MonoBehaviour
         selectedCCButton = button;
         selectedCC = ccValue;
         // Update button 
+        if(selectedCC == 50){
+             VariableManager.instance.SetCCValue(1);
+         }
+         if(selectedCC == 100){
+             VariableManager.instance.SetCCValue(1.5f);
+         }
+         if(selectedCC == 150){
+             VariableManager.instance.SetCCValue(2);
+         }
         SetButtonSelected(button);
         Debug.Log($"Selected CC: {selectedCC}");
         CheckShowNextButton();
