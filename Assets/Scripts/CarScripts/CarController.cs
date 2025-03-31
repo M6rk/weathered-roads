@@ -214,6 +214,16 @@ public class CarController : MonoBehaviour
         skidSound.mute = !toggle;
     }
 
+    public void PauseAllSounds(){
+        engineSound.Pause();
+        skidSound.Pause();
+    }
+
+    public void UnpauseAllSounds(){
+        engineSound.UnPause();
+        skidSound.UnPause();
+    }
+
     #endregion
 
     #region Input Handling
