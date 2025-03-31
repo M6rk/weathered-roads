@@ -239,7 +239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5d21d4300a97ff4ab69e1cd551ec122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carRB: {fileID: 1455327199}
+  carRB: {fileID: 1796270945}
   car: {fileID: 1455327196}
   minSpeedArrowAngle: 220.164
   maxSpeedArrowAngle: -44.913
@@ -8616,6 +8616,7 @@ MonoBehaviour:
   carAudioSources:
   - {fileID: 1796270944}
   - {fileID: 1796270943}
+  currentTrack: Map1
 --- !u!4 &1379402818
 Transform:
   m_ObjectHideFlags: 0
@@ -9825,10 +9826,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1451419187}
   m_CullTransparentMesh: 1
---- !u!114 &1455327196 stripped
+--- !u!114 &1455327196
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 272329525977489119, guid: 56ce8911b8699f34e9f674d0955a0317, type: 3}
-  m_PrefabInstance: {fileID: 1206463865}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -9836,11 +9838,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba793dc96ebc28b428cc1eed032499d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!54 &1455327199 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 3605030830662776408, guid: 56ce8911b8699f34e9f674d0955a0317, type: 3}
-  m_PrefabInstance: {fileID: 1206463865}
-  m_PrefabAsset: {fileID: 0}
+  carRB: {fileID: 0}
+  rayPoints: []
+  drivable:
+    serializedVersion: 2
+    m_Bits: 0
+  accelerationPoint: {fileID: 0}
+  tires:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  frontTireParents:
+  - {fileID: 0}
+  - {fileID: 0}
+  skidMarks:
+  - {fileID: 0}
+  - {fileID: 0}
+  skidSmokes:
+  - {fileID: 0}
+  - {fileID: 0}
+  engineSound: {fileID: 0}
+  skidSound: {fileID: 0}
+  car: {fileID: 0}
+  springStiffness: 0
+  damperStiffness: 0
+  restLength: 0
+  springTravel: 0
+  wheelRadius: 0
+  acceleration: 25
+  maxSpeed: 100
+  deceleration: 10
+  steerStrength: 15
+  turningCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  dragCoefficient: 1
+  breakingDeceleration: 100
+  breakingDragCoefficient: 0.5
+  tireRotSpeed: 3000
+  maxSteeringAngle: 30
+  minSideSkidVelocity: 10
+  minPitch: 1
+  maxPitch: 5
 --- !u!4 &1457062921 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c7ac0034dc0a1f8489de3cfd5021b4a2, type: 3}
@@ -11595,6 +11638,11 @@ AudioSource:
 --- !u!82 &1796270944 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 6815640293930100608, guid: 56ce8911b8699f34e9f674d0955a0317, type: 3}
+  m_PrefabInstance: {fileID: 139195257}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &1796270945 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 3605030830662776408, guid: 56ce8911b8699f34e9f674d0955a0317, type: 3}
   m_PrefabInstance: {fileID: 139195257}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1821225495 stripped
