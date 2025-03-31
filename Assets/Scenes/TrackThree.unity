@@ -1256,6 +1256,7 @@ MonoBehaviour:
   backgroundMusicSource: {fileID: 112152482}
   countdownBeep: {fileID: 8300000, guid: 075cc29a331379d4ebf6c11ae832083e, type: 3}
   goBeep: {fileID: 8300000, guid: 74991bab5dda0194dbc93ae142e49ea1, type: 3}
+  currentTrack: Map1
 --- !u!4 &112152484
 Transform:
   m_ObjectHideFlags: 0
@@ -12000,8 +12001,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 46
-  m_fontSizeBase: 46
+  m_fontSize: 120
+  m_fontSizeBase: 120
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -12068,8 +12069,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 213, y: 141}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 219.9385, y: 141}
+  m_SizeDelta: {x: 625.55, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1814617006
 GameObject:
@@ -14711,3 +14712,4 @@ SceneRoots:
   - {fileID: 638415509}
   - {fileID: 112152484}
   - {fileID: 836578444}
+  - {fileID: 752410242}

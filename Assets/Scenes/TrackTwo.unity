@@ -487,7 +487,7 @@ Transform:
   - {fileID: 924878719}
   - {fileID: 565883262}
   - {fileID: 1874724490}
-  m_Father: {fileID: 338368551}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &57935605
 PrefabInstance:
@@ -1668,7 +1668,6 @@ GameObject:
   - component: {fileID: 411514948}
   - component: {fileID: 411514947}
   - component: {fileID: 411514946}
-  - component: {fileID: 411514945}
   m_Layer: 5
   m_Name: RacingUI
   m_TagString: Untagged
@@ -1676,22 +1675,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 411514944}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
 --- !u!114 &411514946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3044,6 +3027,7 @@ MonoBehaviour:
   backgroundMusicSource: {fileID: 614997453}
   countdownBeep: {fileID: 8300000, guid: 075cc29a331379d4ebf6c11ae832083e, type: 3}
   goBeep: {fileID: 8300000, guid: 74991bab5dda0194dbc93ae142e49ea1, type: 3}
+  currentTrack: Map1
 --- !u!4 &614997455
 Transform:
   m_ObjectHideFlags: 0
@@ -5518,7 +5502,7 @@ Transform:
   - {fileID: 1203475407}
   - {fileID: 2087603670}
   - {fileID: 89988653}
-  m_Father: {fileID: 338368551}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1098171113
 GameObject:
@@ -6319,8 +6303,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 213, y: 141}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 219.9385, y: 141}
+  m_SizeDelta: {x: 625.55, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1395594928
 MonoBehaviour:
@@ -6369,8 +6353,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 46
-  m_fontSizeBase: 46
+  m_fontSize: 120
+  m_fontSizeBase: 120
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -6700,7 +6684,7 @@ Transform:
   - {fileID: 2027942813}
   - {fileID: 1924890627}
   - {fileID: 81829416}
-  m_Father: {fileID: 338368551}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1440592361
 MonoBehaviour:
@@ -10412,4 +10396,3 @@ SceneRoots:
   - {fileID: 49467599}
   - {fileID: 1259251415}
   - {fileID: 784232640}
-  - {fileID: 338368551}
