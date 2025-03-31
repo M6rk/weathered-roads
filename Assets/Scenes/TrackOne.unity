@@ -1074,15 +1074,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3049811397288312017, guid: 56ce8911b8699f34e9f674d0955a0317, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1972.38
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3049811397288312017, guid: 56ce8911b8699f34e9f674d0955a0317, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -48.36
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3049811397288312017, guid: 56ce8911b8699f34e9f674d0955a0317, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1816
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3049811397288312017, guid: 56ce8911b8699f34e9f674d0955a0317, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4710,7 +4710,7 @@ MonoBehaviour:
   OnResetPressed:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1411450128}
+      - m_Target: {fileID: 1562173565}
         m_TargetAssemblyTypeName: CarController, Assembly-CSharp
         m_MethodName: ResetCar
         m_Mode: 1
@@ -9148,7 +9148,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 272329525977489119, guid: 56ce8911b8699f34e9f674d0955a0317, type: 3}
   m_PrefabInstance: {fileID: 139195257}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1562173565}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ba793dc96ebc28b428cc1eed032499d8, type: 3}
@@ -10026,7 +10026,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1451419187}
   m_CullTransparentMesh: 1
---- !u!114 &1455327196 stripped
+--- !u!114 &1455327196
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10038,11 +10038,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba793dc96ebc28b428cc1eed032499d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!54 &1455327199 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 3605030830662776408, guid: 56ce8911b8699f34e9f674d0955a0317, type: 3}
-  m_PrefabInstance: {fileID: 1206463865}
-  m_PrefabAsset: {fileID: 0}
+  carRB: {fileID: 0}
+  rayPoints: []
+  drivable:
+    serializedVersion: 2
+    m_Bits: 0
+  accelerationPoint: {fileID: 0}
+  tires:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  frontTireParents:
+  - {fileID: 0}
+  - {fileID: 0}
+  skidMarks:
+  - {fileID: 0}
+  - {fileID: 0}
+  skidSmokes:
+  - {fileID: 0}
+  - {fileID: 0}
+  engineSound: {fileID: 0}
+  skidSound: {fileID: 0}
+  car: {fileID: 0}
+  springStiffness: 0
+  damperStiffness: 0
+  restLength: 0
+  springTravel: 0
+  wheelRadius: 0
+  acceleration: 25
+  maxSpeed: 100
+  deceleration: 10
+  steerStrength: 15
+  turningCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  dragCoefficient: 1
+  breakingDeceleration: 100
+  breakingDragCoefficient: 0.5
+  tireRotSpeed: 3000
+  maxSteeringAngle: 30
+  minSideSkidVelocity: 10
+  minPitch: 1
+  maxPitch: 5
 --- !u!4 &1457062921 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c7ac0034dc0a1f8489de3cfd5021b4a2, type: 3}
@@ -10743,6 +10784,11 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: bac90bc628a46284bb3ad21fbb559e13, type: 3}
   m_PrefabInstance: {fileID: 450295516}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1562173565 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6149683538193976516, guid: 56ce8911b8699f34e9f674d0955a0317, type: 3}
+  m_PrefabInstance: {fileID: 139195257}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1585971656 stripped
 Transform:

@@ -19,7 +19,7 @@ public class RacingUI : MonoBehaviour
     private bool isRacing = false;
     private float countdownTime = 3f; 
     private bool isCountingDown = false;
-    private bool isRacing = true;
+    // private bool isRacing = true;
     [Header("Track ID")]
     [SerializeField] private string currentTrack = "Map1"; 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
