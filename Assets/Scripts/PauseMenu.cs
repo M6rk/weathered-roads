@@ -11,6 +11,8 @@ public class PauseMenu : MonoBehaviour
     [Header("Buttons")]
     [SerializeField] private Button resumeButton;
     [SerializeField] private Button quitButton;
+
+    [SerializeField] private CarController carController;
     
     private bool isPaused = false;
     
@@ -52,7 +54,7 @@ public class PauseMenu : MonoBehaviour
     {
         // Freeze time
         Time.timeScale = 0f;
-        
+        carController.PauseAllSounds();
         // Show pause menu, hide racing UI
         if (pauseMenuCanvas != null)
             pauseMenuCanvas.gameObject.SetActive(true);
@@ -65,6 +67,7 @@ public class PauseMenu : MonoBehaviour
         // Resume time
         Time.timeScale = 1f;
         isPaused = false;
+        carController.UnpauseAllSounds();
         // Hide pause menu, show racing UI
         if (pauseMenuCanvas != null)
             pauseMenuCanvas.gameObject.SetActive(false);
