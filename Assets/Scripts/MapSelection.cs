@@ -27,7 +27,9 @@ public class MapSelection : MonoBehaviour
     private Button selectedMapButton;
     private string targetScene;
 
-
+    // General button colors
+    // [SerializeField] private Color normalColor = Color.white;
+    // [SerializeField] private Color selectedColor = Color.gray;
 
 
     void Start()
@@ -87,7 +89,15 @@ public class MapSelection : MonoBehaviour
     {
         if (selectedMapButton != null && !string.IsNullOrEmpty(targetScene))
         {
-            TransitionManager.Instance().Transition(targetScene, transition, startDelay);
+            // Load the selected track scene
+            SceneManager.LoadScene(targetScene);
+
+            // Load the selected weather scene additively
+            string selectedWeather = PlayerPrefs.GetString("SelectedWeatherScene");
+            if (!string.IsNullOrEmpty(selectedWeather))
+            {
+                SceneManager.LoadScene(selectedWeather, LoadSceneMode.Additive);
+            }
         }
     }
 }

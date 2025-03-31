@@ -38,6 +38,15 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/GameOver.unity
     guid: d2316ebce7a684624a297c83f0b6a212
+  - enabled: 1
+    path: Assets/Scenes/RainyScene.unity
+    guid: e33d7a68ac805414b8b050b7734ba319
+  - enabled: 1
+    path: Assets/Scenes/SunnyScene.unity
+    guid: d74974aa3bda445fdb4fd6de3f16d148
+  - enabled: 1
+    path: Assets/Scenes/SnowyScene.unity
+    guid: df751b6cfb1454b0f8425174a3edc0c4
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
