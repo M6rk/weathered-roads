@@ -4710,7 +4710,7 @@ MonoBehaviour:
   OnResetPressed:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1562173565}
+      - m_Target: {fileID: 1411450128}
         m_TargetAssemblyTypeName: CarController, Assembly-CSharp
         m_MethodName: ResetCar
         m_Mode: 1
@@ -9148,7 +9148,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 272329525977489119, guid: 56ce8911b8699f34e9f674d0955a0317, type: 3}
   m_PrefabInstance: {fileID: 139195257}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1562173565}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ba793dc96ebc28b428cc1eed032499d8, type: 3}
@@ -10784,11 +10784,6 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: bac90bc628a46284bb3ad21fbb559e13, type: 3}
   m_PrefabInstance: {fileID: 450295516}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1562173565 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6149683538193976516, guid: 56ce8911b8699f34e9f674d0955a0317, type: 3}
-  m_PrefabInstance: {fileID: 139195257}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1585971656 stripped
 Transform:

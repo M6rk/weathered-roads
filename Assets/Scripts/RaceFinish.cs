@@ -12,6 +12,7 @@ public class RaceFinish : MonoBehaviour
     [SerializeField] private GameObject silverMedal;
     [SerializeField] private GameObject bronzeMedal;
     [SerializeField] private float timeModifier;
+    [SerializeField] private float trackTimeOffset = 0;
 
     void Start()
     {
@@ -24,7 +25,8 @@ public class RaceFinish : MonoBehaviour
 
         // Display the appropriate medal
         DisplayMedal(raceTime);
-        
+        timeModifier = VariableManager.instance.timeModifier;
+        trackTimeOffset = VariableManager.instance.tracKTimeOffset;
     }
     private void DisplayFinalTime(float raceTime)
     {
@@ -68,15 +70,15 @@ public class RaceFinish : MonoBehaviour
     }
     private void DisplayMedal(float raceTime)
     {
-        if (raceTime < 180f) // Less than 3  minutes
+        if (raceTime < (180f * timeModifier) - trackTimeOffset) // Less than 3  minutes
         {
             if (goldMedal) goldMedal.SetActive(true);
         }
-        else if (raceTime < 210f) // Less than 3.5 minutes
+        else if (raceTime < (210f * timeModifier) - trackTimeOffset) // Less than 3.5 minutes
         {
             if (silverMedal) silverMedal.SetActive(true);
         }
-        else if (raceTime < 240f) // Less than 4 minutes
+        else if (raceTime < (240f * timeModifier) - trackTimeOffset) // Less than 4 minutes
         {
             if (bronzeMedal) bronzeMedal.SetActive(true);
         }

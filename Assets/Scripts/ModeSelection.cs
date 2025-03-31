@@ -76,6 +76,15 @@ public class ModeSelection : MonoBehaviour
         }
         selectedWeatherButton = button;
         selectedWeatherSceneName = weatherSceneName;
+        if(selectedWeatherSceneName == "RainyScene"){
+            VariableManager.instance.SetTimeModifier(1.25f);
+        }
+        if(selectedWeatherSceneName == "SunnyScene"){
+            VariableManager.instance.SetTimeModifier(1);
+        }
+        if(selectedWeatherSceneName == "SnowyScene"){
+            VariableManager.instance.SetTimeModifier(1.5f);
+        }
         SetButtonSelected(button);
         Debug.Log($"Selected Weather Scene: {selectedWeatherSceneName}");
         CheckShowNextButton();

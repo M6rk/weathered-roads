@@ -53,6 +53,9 @@ public class MapSelection : MonoBehaviour
         }
         selectedMapButton = button;
         targetScene = trackScene;
+        if(targetScene == "TrackTwo"){
+            VariableManager.instance.SetTrackTimeOffset(60);
+        }
         SetButtonSelected(button);
         CheckShowNextButton();
     }
