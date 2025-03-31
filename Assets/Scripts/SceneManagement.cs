@@ -31,6 +31,14 @@ public class SceneManagement : MonoBehaviour
     {
         SceneManager.LoadScene("StartMenu");
     }
+    public void LoadLeaderboard()
+    {
+        SceneManager.LoadScene("Leaderboard");
+    }
+    public void LoadRaceFinish()
+    {
+        SceneManager.LoadScene("RaceFinish");
+    }
     public void QuitGame()
     {
         #if UNITY_EDITOR

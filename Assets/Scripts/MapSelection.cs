@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using EasyTransition;
 
 public class MapSelection : MonoBehaviour
 {
@@ -10,8 +11,18 @@ public class MapSelection : MonoBehaviour
     [SerializeField] private Button map3Button;
     [SerializeField] private Color mapNormalColor = Color.white;
     [SerializeField] private Color mapSelectedColor = Color.gray;
+
     [Header("Navigation")]
     [SerializeField] private Button nextButton;
+//    [SerializeField] private GameObject nextButtonParent; // Parent object containing RectTransition
+
+    [Header("Button Colors")]
+    [SerializeField] private Color normalColor = Color.white;
+    [SerializeField] private Color selectedColor = Color.gray;
+
+    [Header("Transition")]
+    public TransitionSettings transition;
+    public float startDelay;
 
     private Button selectedMapButton;
     private string targetScene;
@@ -74,7 +85,7 @@ public class MapSelection : MonoBehaviour
     }
 
     // Navigate to tracks scene
-    private void LoadSelectedTrack()
+    public void LoadSelectedTrack()
     {
         if (selectedMapButton != null && !string.IsNullOrEmpty(targetScene))
         {

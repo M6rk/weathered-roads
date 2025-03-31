@@ -29,6 +29,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/RaceFinish.unity
     guid: f4a31cec277d14e4fa3926d6631fe19a
+  - enabled: 1
+    path: Assets/Scenes/Leaderboard.unity
+    guid: 6c7aafb76dc7a437dbe096b2641e0178
   - enabled: 0
     path: Assets/Scenes/RacingUI.unity
     guid: c63a9e989c71242708025df920a02b41
