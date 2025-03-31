@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 901896}
   - component: {fileID: 901895}
   - component: {fileID: 901894}
+  - component: {fileID: 901898}
   m_Layer: 5
   m_Name: RacingUI
   m_TagString: Untagged
@@ -226,6 +227,24 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &901898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 901893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5d21d4300a97ff4ab69e1cd551ec122, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  carRB: {fileID: 1455327199}
+  car: {fileID: 1455327196}
+  minSpeedArrowAngle: 220.164
+  maxSpeedArrowAngle: -44.913
+  speedLabel: {fileID: 1739207261}
+  arrow: {fileID: 900004623}
 --- !u!4 &12867254 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 580d00186816f464a8c86c59769dfd2c, type: 3}
@@ -2174,7 +2193,7 @@ GameObject:
   m_Component:
   - component: {fileID: 357780248}
   m_Layer: 5
-  m_Name: RPM
+  m_Name: Speedometer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5800,13 +5819,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 900004622}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: -0, z: 0.9392022, w: -0.3433646}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 357780248}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 220.164}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 129.76587, y: -42.1}
@@ -7374,7 +7393,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 2/3
+  m_text: 1/3
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -10006,6 +10025,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1451419187}
   m_CullTransparentMesh: 1
+
+--- !u!114 &1455327196 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 272329525977489119, guid: 56ce8911b8699f34e9f674d0955a0317, type: 3}
+  m_PrefabInstance: {fileID: 1206463865}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba793dc96ebc28b428cc1eed032499d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!54 &1455327199 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 3605030830662776408, guid: 56ce8911b8699f34e9f674d0955a0317, type: 3}
+  m_PrefabInstance: {fileID: 1206463865}
+  m_PrefabAsset: {fileID: 0}
+
 --- !u!4 &1457062921 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c7ac0034dc0a1f8489de3cfd5021b4a2, type: 3}
@@ -14394,6 +14431,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3890292087176848913, guid: ec466198640e32a408f386a67d5166aa, type: 3}
+      propertyPath: lapCounter
+      value: 
+      objectReference: {fileID: 1156319533}
     - target: {fileID: 5093185762516166396, guid: ec466198640e32a408f386a67d5166aa, type: 3}
       propertyPath: m_Name
       value: Checkpoint (0)

@@ -1,11 +1,12 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class RaceFinish : MonoBehaviour
 {
     [SerializeField] private TMP_Text finalTimeText;
-    
+
     [Header("Medal Images")]
     [SerializeField] private GameObject goldMedal;
     [SerializeField] private GameObject silverMedal;
@@ -15,29 +16,54 @@ public class RaceFinish : MonoBehaviour
     {
         // hide medals unless player achieves an equiavalent time
         HideAllMedals();
-        
+
         // Get race time
         float raceTime = PlayerPrefs.GetFloat("LastRaceTime", 0f);
         DisplayFinalTime(raceTime);
-        
+
         // Display the appropriate medal
         DisplayMedal(raceTime);
     }
-
     private void DisplayFinalTime(float raceTime)
     {
+        if (raceTime == 0f)
+        {
+            finalTimeText.text = "--:--";
+            return;
+        }
+
         int minutes = Mathf.FloorToInt(raceTime / 60);
         int seconds = Mathf.FloorToInt(raceTime % 60);
-        finalTimeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        int milliseconds = Mathf.FloorToInt((raceTime % 1) * 100);
+        finalTimeText.text = string.Format("{0:00}:{1:00}.{2:00}", minutes, seconds, milliseconds);
     }
-    
+    public void RestartRace()
+    {
+        string lastRaceMap = PlayerPrefs.GetString("LastRaceMap", "Map1");
+
+        switch (lastRaceMap)
+        {
+            case "Map1":
+                SceneManager.LoadScene("TrackOne");
+                break;
+            case "Map2":
+                SceneManager.LoadScene("TrackTwo");
+                break;
+            case "Map3":
+                SceneManager.LoadScene("TrackThree");
+                break;
+            default:
+                // Fallback to first track 
+                SceneManager.LoadScene("TrackOne");
+                break;
+        }
+    }
     private void HideAllMedals()
     {
         if (goldMedal) goldMedal.SetActive(false);
         if (silverMedal) silverMedal.SetActive(false);
         if (bronzeMedal) bronzeMedal.SetActive(false);
     }
-    // TODO: Display a leaderboard of player's time's and the associated medals.
     private void DisplayMedal(float raceTime)
     {
         if (raceTime < 60f) // Less than 1 minute
