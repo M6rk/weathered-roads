@@ -28,8 +28,8 @@ public class MapSelection : MonoBehaviour
     private string targetScene;
 
     // General button colors
-    [SerializeField] private Color normalColor = Color.white;
-    [SerializeField] private Color selectedColor = Color.gray;
+    // [SerializeField] private Color normalColor = Color.white;
+    // [SerializeField] private Color selectedColor = Color.gray;
 
 
     void Start()
