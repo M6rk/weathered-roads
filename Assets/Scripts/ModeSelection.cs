@@ -54,13 +54,13 @@ public class ModeSelection : MonoBehaviour
         selectedCC = ccValue;
         // Update button 
         if(selectedCC == 50){
-             VariableManager.instance.SetCCValue(1);
+             VariableManager.instance.SetCCValue(0.75f);
          }
          if(selectedCC == 100){
-             VariableManager.instance.SetCCValue(1.5f);
+             VariableManager.instance.SetCCValue(1f);
          }
          if(selectedCC == 150){
-             VariableManager.instance.SetCCValue(2);
+             VariableManager.instance.SetCCValue(1.25f);
          }
         SetButtonSelected(button);
         Debug.Log($"Selected CC: {selectedCC}");
