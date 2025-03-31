@@ -6,6 +6,7 @@ public class VariableManager : MonoBehaviour
     public float selectedCC = 1;
     public float timeModifier = 1;
     public float tracKTimeOffset = 0;
+    public string weather  = "Sunny";
 
     private void Awake()
     {
@@ -29,5 +30,9 @@ public class VariableManager : MonoBehaviour
 
     public void SetTrackTimeOffset(float offset){
         tracKTimeOffset = offset;
+    }
+
+    public void SetWeather(string weathercondition){
+        weather = weathercondition;
     }
 }
