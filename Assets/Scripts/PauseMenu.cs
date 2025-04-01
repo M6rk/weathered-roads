@@ -7,25 +7,25 @@ public class PauseMenu : MonoBehaviour
     [Header("UI References")]
     [SerializeField] private Canvas pauseMenuCanvas;
     [SerializeField] private Canvas racingUICanvas;
-    
+
     [Header("Buttons")]
     [SerializeField] private Button resumeButton;
     [SerializeField] private Button quitButton;
 
     [SerializeField] private CarController carController;
-    
+
     private bool isPaused = false;
-    
+
     void Start()
     {
         // Hide pause menu initially
         if (pauseMenuCanvas != null)
             pauseMenuCanvas.gameObject.SetActive(false);
-        
-        // Set up button listeners
+
+        //Set up button listeners
         if (resumeButton != null)
             resumeButton.onClick.AddListener(ResumeGame);
-        
+
         if (quitButton != null)
             quitButton.onClick.AddListener(QuitToMainMenu);
     }
@@ -40,7 +40,7 @@ public class PauseMenu : MonoBehaviour
     public void TogglePause()
     {
         isPaused = !isPaused;
-        
+
         if (isPaused)
         {
             PauseGame();
@@ -52,15 +52,13 @@ public class PauseMenu : MonoBehaviour
     }
     private void PauseGame()
     {
-        // Freeze time
-        Time.timeScale = 0f;
-        carController.PauseAllSounds();
-        // Show pause menu, hide racing UI
         if (pauseMenuCanvas != null)
             pauseMenuCanvas.gameObject.SetActive(true);
-        
+
         if (racingUICanvas != null)
             racingUICanvas.gameObject.SetActive(false);
+        carController.PauseAllSounds();
+        Time.timeScale = 0f;
     }
     public void ResumeGame()
     {
@@ -71,11 +69,11 @@ public class PauseMenu : MonoBehaviour
         // Hide pause menu, show racing UI
         if (pauseMenuCanvas != null)
             pauseMenuCanvas.gameObject.SetActive(false);
-        
+
         if (racingUICanvas != null)
             racingUICanvas.gameObject.SetActive(true);
     }
-    
+
     public void QuitToMainMenu()
     {
         // Reset time scale before loading main menu
