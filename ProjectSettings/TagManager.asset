@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - Checkpoint
+  - button
   layers:
   - Default
   - TransparentFX
