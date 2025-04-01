@@ -1112,10 +1112,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3702154338501790356, guid: 56ce8911b8699f34e9f674d0955a0317, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: f8d100d77ab8f23469d325569d183785, type: 2}
     - target: {fileID: 6149683538193976516, guid: 56ce8911b8699f34e9f674d0955a0317, type: 3}
       propertyPath: m_Name
       value: Car
       objectReference: {fileID: 0}
+    - target: {fileID: 6815640293930100608, guid: 56ce8911b8699f34e9f674d0955a0317, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: f8d100d77ab8f23469d325569d183785, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8647,7 +8655,7 @@ AudioSource:
   m_GameObject: {fileID: 1379402816}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: f8d100d77ab8f23469d325569d183785, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
@@ -8744,7 +8752,7 @@ AudioSource:
   m_GameObject: {fileID: 1379402816}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: f8d100d77ab8f23469d325569d183785, type: 2}
   m_audioClip: {fileID: 8300000, guid: 53715a2a8998ba34a8f4d2e5712955f7, type: 3}
   m_Resource: {fileID: 8300000, guid: 53715a2a8998ba34a8f4d2e5712955f7, type: 3}
   m_PlayOnAwake: 1
